@@ -1,0 +1,86 @@
+@model AI.Models.AIType
+
+@{
+    ViewData["Title"] = "AI Details";
+}
+
+<section id="spo" class="special-offer">
+ 
+			<div class="container">
+				<div class="special-offer-content">
+					<div class="row">
+						<div class="col-sm-8">
+							<div class="single-special-offer">
+								<div class="single-special-offer-txt">
+									<h2> @Html.DisplayFor(model => model.nom)</h2>
+									<div class="packages-review special-offer-review">
+										<p>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											
+										</p>
+									</div><!--/.packages-review-->
+									<div class="packages-para special-offer-para">
+										<p class="offer-para">
+											<h4>@Html.DisplayFor(model => model.description)</h4>
+										</p>
+										<p>
+
+											<h3>@Html.DisplayNameFor(model => model.avantages)</h3>
+
+											<span>
+												<h5>@Html.DisplayFor(model => model.avantages)</h5>
+											</span>
+
+										</p>
+										<p>
+											<h3>@Html.DisplayNameFor(model => model.exemples)</h3>
+
+											<span>
+												<h5>@Html.DisplayFor(model => model.exemples)</h5>
+											</span>
+										</p>
+
+									</div><!--/.packages-para-->
+									<div class="offer-btn-group">
+										@using (Html.BeginForm("Index", "AIType"))
+                                        {
+                                            <div class="about-btn">
+                                                <button class="about-view packages-btn offfer-btn">
+                                                    Back to List
+                                                </button>
+                                            </div><!--/.about-btn-->
+                                        }
+										@using (Html.BeginForm("Index", "Home"))
+                                        {
+                                            <div class="about-btn">
+                                                <button class="about-view packages-btn">
+                                                    Back to Home
+                                                </button>
+                                            </div><!--/.about-btn-->
+                                        }
+										
+										
+									</div><!--/.offer-btn-group-->
+								</div><!--/.single-special-offer-txt-->
+							</div><!--/.single-special-offer-->
+						</div><!--/.col-->
+						<div class="col-sm-4">
+							<div class="single-special-offer">
+								<div class="single-special-offer-bg">
+									<img src="~/images/gallary/offer-shape.png" alt="offer-shape">
+								</div><!--/.single-special-offer-bg-->
+								<div class="single-special-shape-txt">
+									
+								</div><!--/.single-special-shape-txt-->
+							</div><!--/.single-special-offer-->
+						</div><!--/.col-->
+					</div><!--/.row-->
+				</div><!--/.special-offer-content-->
+			</div><!--/.container-->
+
+		</section><!--/.special-offer end-->
+

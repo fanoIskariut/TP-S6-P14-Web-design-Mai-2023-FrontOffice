@@ -1,0 +1,39 @@
+<rewrite>
+    <rules>
+       
+        
+        <rule name="RedirectPrivacy" stopProcessing="true">
+            <match url="^AIType/Details/([0-9]+)$" />
+            <action type="Redirect" url="/AI_Top_{R:1}_Details.html" redirectType="Permanent" />
+        </rule>
+        <rule name="Details" stopProcessing="true">
+            <match url="^AI_Top_(\d+)_Details.html$" />
+            <action type="Rewrite" url="AIType/Details/{R:1}" />
+        </rule>
+        <rule name="RewritePageUrl" stopProcessing="true">
+            <match url="^AIType$" />
+            <conditions>
+                <add input="{QUERY_STRING}" pattern="^page=([\d]+)$" />
+            </conditions>
+            <action type="Redirect" url="/Ai_Top-page-{C:1}.html" appendQueryString="false" />
+        </rule>
+        <rule name="RewritePageUrl" stopProcessing="true">
+            <match url="^Ai_Top-page-(\d+).html$" />
+            <action type="Rewrite" url="/AIType?page={R:1}" />
+        </rule>
+
+        <rule name="RedirectSearchUrl" stopProcessing="true">
+            <match url="^AIType$" />
+            <conditions>
+                <add input="{QUERY_STRING}" pattern="^idr=([\d]+)$" />
+            </conditions>
+            <action type="Redirect" url="/Ai_Top-{C:1}-Rechreche.html" appendQueryString="false" />
+        </rule>
+        <rule name="RewriteSearchUrl" stopProcessing="true">
+            <match url="^Ai_Top-(\d+)-Rechreche.html$" />
+            <action type="Rewrite" url="/AIType?idr={R:1}" />
+        </rule>
+
+
+    </rules>
+</rewrite>

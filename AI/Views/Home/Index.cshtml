@@ -1,0 +1,36 @@
+﻿@{
+    ViewData["Title"] = "AI Home";
+}
+
+<section id="home" class="about-us">
+    <div class="container">
+        <div class="about-us-content">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="single-about-us">
+                        <div class="about-us-txt">
+                            <h2>
+                                Explore the Top of the AI
+                            </h2>
+                            @using (Html.BeginForm("Index", "AIType"))
+                            {
+                                <div class="about-btn">
+                                    <button  class="about-view">
+                                        explore now
+                                    </button>
+                                </div>
+                            }
+                
+                        </div><!--/.about-us-txt-->
+                    </div><!--/.single-about-us-->
+                </div><!--/.col-->
+                <div class="col-sm-0">
+                    <div class="single-about-us">
+								
+                    </div><!--/.single-about-us-->
+                </div><!--/.col-->
+            </div><!--/.row-->
+        </div><!--/.about-us-content-->
+    </div><!--/.container-->
+
+</section><!--/.about-us-->

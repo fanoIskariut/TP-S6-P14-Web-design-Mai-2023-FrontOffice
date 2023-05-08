@@ -1,0 +1,94 @@
+@model IEnumerable<AI.Models.AIType>
+
+@{
+    ViewData["Title"] = "AI Types";
+}
+<!--travel-box start-->
+
+
+<section id="gallery" class="gallery">
+			<div class="container">
+				<div class="gallery-details">
+					<div class="gallary-header text-center">
+						<h2>
+							top AI
+						</h2>
+						
+						<form method="get" action="@Url.Action("Index")">
+                        <div class="col-lg-4 col-md-4 col-sm-12">
+	                        <div class="single-tab-select-box">
+		                        <div class="travel-select-icon">
+			                        <select class="form-control " name="idr">
+				                        <option>IA</option>
+				                        @foreach (var item in Model)
+				                        {
+
+					                        <option value="@Html.Raw(item.id)">@Html.Raw(item.nom)</option>
+				                        }
+			                        </select>
+			                        </div>
+	                        </div>
+                        </div>
+                        	<div class="clo-sm-7">
+                            	<div class="about-btn travel-mrt-0 pull-right">
+                            		<button  class="about-view travel-btn">
+                            			search	
+                            		</button><!--/.travel-btn-->
+                            	</div><!--/.about-btn-->
+                            
+                            </div><!--/.col-->
+                        </form>
+					</div><!--/.gallery-header-->
+					<div class="gallery-box">
+						<div class="gallery-content">
+						  	<div class="filtr-container">
+                            <div class="row">
+                            	
+		                                 @foreach (var item in Model)
+		                                 {
+		                                     Random random = new Random();
+		                                     int randomNumber = random.Next(4, 9);
+		                                     <div class="col-md-@Html.Raw(randomNumber)">
+                                                 <div class="filtr-item">
+		                                         <img src="~/images/gallary/@Html.Raw(item.images)" alt="portfolio image"/>
+		                                         <div class="item-title">
+                                                     <a asp-action="Details" asp-route-id="@item.id">@Html.Raw(item.nom)</a>
+		                                         </div><!-- /.item-title -->
+                                                 </div><!-- /.filtr-item -->
+                                             </div><!-- /.col -->
+		                                 }
+                                    
+                          </div><!-- /.row -->
+                          
+                        </div><!-- /.filtr-container-->
+                    </div><!-- /.gallery-content -->
+                </div><!--/.galley-box-->
+            </div><!--/.gallery-details-->
+        </div><!--/.container-->
+
+</section><!--/.gallery-->  
+<div class="pager">
+    @if (ViewBag.CurrentPage > 1)
+    {
+        <a href="@Url.Action("Index", new { page = ViewBag.CurrentPage - 1 })">Previous</a>
+    }
+ 
+    @for (int i = 1; i <= ViewBag.TotalPages; i++)
+    {
+        if (i == ViewBag.CurrentPage)
+        {
+            <span>@i</span>
+        }
+        else
+        {
+            <a href="@Url.Action("Index", new { page = i })">@i</a>
+        }
+    }
+ 
+    @if (ViewBag.CurrentPage < ViewBag.TotalPages)
+    {
+        <a href="@Url.Action("Index", new { page = ViewBag.CurrentPage + 1 })">Next</a>
+    }
+</div>  
+
+
